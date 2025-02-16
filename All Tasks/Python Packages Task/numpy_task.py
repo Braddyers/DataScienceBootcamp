@@ -76,7 +76,8 @@ answer = arr[:, :, 0][:, ::-1]
 print(f"\nf. {answer}")           
 
 # g. [[1. 4.] [45. 48.]]
-answer = np.array([[arr[0, 0, 0], arr[0, 0, 3]], [arr[2, 3, 0], arr[2, 3, 3]]])
+indices = [0, 3, 44, 47]  # Flattened indices of desired values
+answer = arr.flatten()[indices].reshape(2, 2)
 print(f"\ng. {answer}")
 
 # h. [[25. 26. 27. 28.], [29. 30. 31. 32.], [33. 34. 35. 36.], [37. 38. 39. 40.]]
