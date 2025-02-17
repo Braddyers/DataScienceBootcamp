@@ -56,6 +56,9 @@ arr = np.linspace(1, 48, 48).reshape(3, 4, 4)
 print("\nQuestion 3 (answer checks): \n")
 print(f"Array:\n{arr}\n")
 
+flat_arr = arr.flatten()
+print(flat_arr)
+
 # a. 20.0
 # Method 1
 answer = arr[1, 0, 3]                 # Selects [second matrix, first row, fourth column]
@@ -77,10 +80,13 @@ print(f"b. {answer}")
 answer = arr[2]                       # Selects [third matrix]
 print(f"\nc. {answer}")
 
-
-
 # d. [[5. 6.], [21. 22.] [37. 38.]]
+# Method 1
 answer = arr[:, 1, 0:2]               # Selects [all matrices, second row, first two columns]
+print(f"\nd. {answer}")
+# Method 2
+indices = [4, 5, 20, 21, 36, 37]                                                     # New indices of desired values of flattened array
+answer = arr.flatten()[indices].reshape(3, 2)                                # Flatten array and reshape it to include desired indices
 print(f"\nd. {answer}")
 
 # e. [[36. 35.] [40. 39.] [44. 43.] [48. 47.]]
