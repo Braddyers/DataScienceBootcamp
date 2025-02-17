@@ -77,6 +77,8 @@ print(f"b. {answer}")
 answer = arr[2]                       # Selects [third matrix]
 print(f"\nc. {answer}")
 
+
+
 # d. [[5. 6.], [21. 22.] [37. 38.]]
 answer = arr[:, 1, 0:2]               # Selects [all matrices, second row, first two columns]
 print(f"\nd. {answer}")
@@ -103,5 +105,5 @@ answer = arr.flatten()[indices].reshape(4, 4)                                # F
 print(f"\nh. {answer.tolist()}")                                             # Insert commas by tolist() function
 # Method 2
 # Concatenate last two rows of one matrix (index=1) and first two rows of the other matrix (index=2) 
-answer = np.concatenate((arr[1, 2:4, :], arr[2, 0:2, :]), axis=0)
+answer = np.concatenate((arr[1, 2:4, :], arr[2, 0:2, :]))
 print(f"h. {answer.tolist()}")                                               # Insert commas by tolist() function
