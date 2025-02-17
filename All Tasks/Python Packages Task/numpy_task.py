@@ -57,31 +57,31 @@ print(f"Array:\n{arr}\n")
 
 # a. 20.0
 # Method 1
-answer = arr[1, 0, 3]                                      # Selects [second matrix, first row, fourth column]
+answer = arr[1, 0, 3]                 # Selects [second matrix, first row, fourth column]
 print(f"a. {answer}")
 # Method 2
-answer = arr.flatten()[19]                                 # Or flatten the array to 1D and then access with new index number (starting at index 0)
+answer = arr.flatten()[19]            # Or flatten the array to 1D and then access with new index number (starting at index 0)
 print(f"a. {answer}")
 
 # b. [ 9. 10. 11. 12.]
 # Method 1
-answer = arr[0, 2]                                         # Selects [first matrix, third row]
+answer = arr[0, 2]                    # Selects [first matrix, third row]
 print(f"\nb. {answer}")
 # Method 2
-indices = [8, 9, 10, 11]                                   # New indices of desired values of flattened array
-answer = arr.flatten()[indices]                          # Flatten array and select indices
-print(f"\nb. {answer}")
+indices = [8, 9, 10, 11]              # New indices of desired values of flattened array
+answer = arr.flatten()[indices]       # Flatten array and select indices
+print(f"b. {answer}")
 
 # c. [[33. 34. 35. 36.] [37. 38. 39. 40.] [41. 42. 43. 44.] [45. 46. 47. 48.]]
-answer = arr[2]                                            # Selects [third matrix]
+answer = arr[2]                       # Selects [third matrix]
 print(f"\nc. {answer}")
 
 # d. [[5. 6.], [21. 22.] [37. 38.]]
-answer = arr[:, 1, 0:2]                                    # Selects [all matrices, second row, first two columns]
+answer = arr[:, 1, 0:2]               # Selects [all matrices, second row, first two columns]
 print(f"\nd. {answer}")
 
 # e. [[36. 35.] [40. 39.] [44. 43.] [48. 47.]]
-answer = arr[2, :, -1:-3:-1]                               # Selects [third matrix, all rows, last two columns in reverse]
+answer = arr[2, :, -1:-3:-1]          # Selects [third matrix, all rows, last two columns in reverse]
 print(f"\ne. {answer}")
 
 # f. [[13. 9. 5. 1.] [29. 25. 21. 17.] [45. 41. 37. 33.]]
@@ -91,10 +91,15 @@ answer = arr[:, :, 0][:, ::-1]
 print(f"\nf. {answer}")           
 
 # g. [[1. 4.] [45. 48.]]
-indices = [0, 3, 44, 47]                                   # New indices of desired values of flattened array
-answer = arr.flatten()[indices].reshape(2, 2)              # Flatten array and reshape it to include desired indices
+indices = [0, 3, 44, 47]                                                     # New indices of desired values of flattened array
+answer = arr.flatten()[indices].reshape(2, 2)                                # Flatten array and reshape it to include desired indices
 print(f"\ng. {answer}")
 
 # h. [[25. 26. 27. 28.], [29. 30. 31. 32.], [33. 34. 35. 36.], [37. 38. 39. 40.]]
-answer = np.array([arr[1, 2], arr[1, 3], arr[2, 0], arr[2, 1]])
-print(f"\nh. {answer}")
+# Method 1
+indices = [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]   # New indices of desired values of flattened array
+answer = arr.flatten()[indices].reshape(4, 4)                                # Flatten array and reshape it to include desired indices
+print(f"\nh. {answer.tolist()}")                                           # Insert commas by tolist() function
+# Method 2
+answer = np.concatenate((arr[1, 2:4, :], arr[2, 0:2, :]), axis=0)          # Concatenate last two rows of one matrix (index=1) and first two rows of the other matrix (index=2) 
+print(f"h. {answer.tolist()}")                                               # Insert commas by tolist() function
