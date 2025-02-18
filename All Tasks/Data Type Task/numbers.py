@@ -15,5 +15,6 @@ print(f"The first number minus the second number is {num1 - num2}")
 print(f"The third number multiplied by the first number is {num3 * num1}")
 
 print(
-    f"The sum of all three numbers divided by the third number is {int(sum1 / num3)}"
-)
+    "The sum of all three numbers divided by " +
+    f"the third number is {int(sum1 / num3)}"
+    )

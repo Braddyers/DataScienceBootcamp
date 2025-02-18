@@ -14,9 +14,9 @@ with open("DOB.txt", "r+") as dob_file:
         # Split each line into parts (name and birth dates)
 
         # Splitting each line
-        parts = line.rsplit(
-            " ", 3
-        )  # Split the words in each line into parts keeping the first names and surnames together
+        parts = line.rsplit(" ", 3)
+        # Split the words in each line into parts keeping the first 
+        # names and surnames together
         raw_name = parts[0]  # The first part is the full name
         raw_birthdate = " ".join(
             parts[1:4]

@@ -1,14 +1,12 @@
 # Initialize variables
 loop_counter = input("How many students are registering? ")
 
-# Input check as positive integer
-while (
-    not loop_counter.isdigit() or int(loop_counter) <= 0
-):  # Check if input not a digit or input not <= 0
+# Input check as positive integer or check if input not a digit or 
+# input not <= 0
+while (not loop_counter.isdigit() or int(loop_counter) <= 0):
     print("Oops. Please enter a positive integer.")
-    loop_counter = input(
-        "How many students are registering? "
-    )  # Re-ask if input invalid.
+    # Re-ask if input invalid.
+    loop_counter = input("How many students are registering? ")  
 
 
 # Creation of text file + formatting + close text file
@@ -26,4 +24,4 @@ for i in range(int(loop_counter)):
     with open("reg_form.txt", "a") as reg_form:
         reg_form.write(
             "\n" + student_id + "\n" + "------------------------" + "\n"
-        )
+            )

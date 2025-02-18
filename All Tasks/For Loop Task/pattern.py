@@ -8,6 +8,8 @@ for i in range(1, rows + 1):
     if i <= 5:
         print("*" * i)
 
-    # Second half of pattern from row 6 ("*" decreases in each subsequent iteration according to my calculated formula)
+    # Second half of pattern from row 6 
+    # ("*" decreases in each subsequent iteration according to my 
+    # calculated formula)
     else:
         print("*" * (rows - i + 1))

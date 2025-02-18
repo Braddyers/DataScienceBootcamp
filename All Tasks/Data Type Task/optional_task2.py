@@ -6,4 +6,6 @@ print(f"Your favourite restaurant is {string_fav}.")
 print(f"Your favourite number is {int_fav}.")
 
 print(int(string_fav))
-# an error was returned as string_fav is a string made up of words (a string literal) with no numercal value and cannot be cast into an integer.
+# An error was returned as string_fav is a string made up of words 
+# (a string literal) with no numercal value and cannot be cast into 
+# an integer.
