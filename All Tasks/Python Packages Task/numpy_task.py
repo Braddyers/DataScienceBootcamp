@@ -53,74 +53,77 @@ print(f"Array dimentions: {a.ndim}\n")
 
 # Answer 3
 arr = np.linspace(1, 48, 48).reshape(3, 4, 4)
-print("\nQuestion 3 (answer checks): \n")
-print(f"Array:\n{arr}\n")
-
-flat_arr = arr.flatten()
-print(flat_arr)
+print("\nAnswer 3 Checks: \n")
+print(f"Array in question:\n\n{arr}\n")
 
 # a. 20.0
-# Method 1
-answer = arr[1, 0, 3]                 # Selects [second matrix, first row, fourth column]
+# Method 1:
+answer = arr[1, 0, 3]          # Selects [second matrix, first row, fourth column]
 print(f"a. {answer}")
-# Method 2
-answer = arr.flatten()[19]            # Or flatten the array to 1D and then access with new index number (starting at index 0)
+# Method 2:
+answer = arr.flatten()[19]     # Or flatten the array index number using new index number
 print(f"a. {answer}")
 
 # b. [ 9. 10. 11. 12.]
-# Method 1
-answer = arr[0, 2]                    # Selects [first matrix, third row]
+# Method 1:
+answer = arr[0, 2]             # Selects [first matrix, third row]
 print(f"\nb. {answer}")
-# Method 3
-answer = arr.flatten()[8:12]       # Flatten array and select indices
+# Method 2:
+answer = arr.flatten()[8:12]   # Flatten array and select indices
 print(f"b. {answer}")
 
 # c. [[33. 34. 35. 36.] [37. 38. 39. 40.] [41. 42. 43. 44.] [45. 46. 47. 48.]]
-# Method 1
-answer = arr[2]                       # Selects [third matrix]
+# Method 1:
+answer = arr[2]                # Selects [third matrix]
 print(f"\nc. {answer}")
-# Method 2
-answer = arr.flatten()[32:48].reshape(4, 4)      # Flatten array and select indices
+# Method 2:
+answer = arr.flatten()[32:48].reshape(4, 4)    # Flatten array and select indices
 print(f"c. {answer}")
 
 # d. [[5. 6.], [21. 22.] [37. 38.]]
-# Method 1
-answer = arr[:, 1, 0:2]               # Selects [all matrices, second row, first two columns]
+# Method 1:
+answer = arr[:, 1, 0:2]                        # Selects [all matrices, second row, first two columns]
 print(f"\nd. {answer}")
-# Method 2
-indices = [4, 5, 20, 21, 36, 37]                                                     # New indices of desired values of flattened array
-answer = arr.flatten()[indices].reshape(3, 2)                                # Flatten array and reshape it to include desired indices
-print(f"\nd. {answer}")
+# Method 2:
+indices = [4, 5, 20, 21, 36, 37]               # New indices of desired values of flattened array
+answer = arr.flatten()[indices].reshape(3, 2)  # Flatten array and reshape it to a 3 by 2 array
+print(f"d. {answer}")
 
 # e. [[36. 35.] [40. 39.] [44. 43.] [48. 47.]]
-# Method 1
-answer = arr[2, :, -1:-3:-1]          # Selects [third matrix, all rows, last two columns in reverse]
+# Method 1:
+answer = arr[2, :, -1:-3:-1]                   # Selects [third matrix, all rows, last two columns in reverse]
 print(f"\ne. {answer}")
-# Method 2
-indices = [35, 34, 39, 38, 43, 42, 47, 46]                                                     # New indices of desired values of flattened array
-answer = arr.flatten()[indices].reshape(4, 2)                                # Flatten array and reshape it to include desired indices
-print(f"\ne. {answer}")
+# Method 2:
+indices = [35, 34, 39, 38, 43, 42, 47, 46]     # New indices of desired values of flattened array
+answer = arr.flatten()[indices].reshape(4, 2)  # Flatten array and reshape it into a 4 by 2 array
+print(f"e. {answer}")
 
 # f. [[13. 9. 5. 1.] [29. 25. 21. 17.] [45. 41. 37. 33.]]
+# Method 1:
 answer = arr[:, :, 0][:, ::-1]
 # [:, :, 0] means select [all matrices, all rows, first column]
-# [:, ::-1] means select [all rows, (start at last column end, end at last column, move backwards by 1)] 
+# [:, ::-1] means select [all rows, (start at last column end, end at last column, moving backwards by 1)] 
 print(f"\nf. {answer}")  
-# Method 2
-indices = [12, 8, 4, 0, 28, 24, 20, 16, 44, 40, 36, 32]                                                     # New indices of desired values of flattened array
-answer = arr.flatten()[indices].reshape(3, 4)                                # Flatten array and reshape it to include desired indices
-print(f"\ne. {answer}")         
+# Method 2:
+indices = [12, 8, 4, 0, 28, 24, 20, 16, 44, 40, 36, 32]   # New indices of desired values of flattened array
+answer = arr.flatten()[indices].reshape(3, 4)             # Flatten array and reshape it into 3 by 4 array
+print(f"f. {answer}")         
 
 # g. [[1. 4.] [45. 48.]]
-indices = [0, 3, 44, 47]                                                     # New indices of desired values of flattened array
-answer = arr.flatten()[indices].reshape(2, 2)                                # Flatten array and reshape it to include desired indices
+# Method 1:
+indices = [0, 3, 44, 47]                                  # New indices of desired values of flattened array
+answer = arr.flatten()[indices].reshape(2, 2)             # Flatten array and reshape it into 2 by 2 array
 print(f"\ng. {answer}")
+# Method 2:
+indices = [arr[0, 0, 0], arr[0, 0, 3], arr[2, 3, 0], arr[2, 3, 3]]
+answer = np.array(indices).reshape(2, 2)
+print(f"g. {answer}")
 
 # h. [[25. 26. 27. 28.], [29. 30. 31. 32.], [33. 34. 35. 36.], [37. 38. 39. 40.]]
-# Method 1                                           # Insert commas by tolist() function
-answer = arr.flatten()[24:40].reshape(4, 4)                                # Flatten array and reshape it to include desired indices
-print(f"\nh. {answer.tolist()}")
-# Method 2
-# Concatenate last two rows of one matrix (index=1) and first two rows of the other matrix (index=2) 
+# Method 1:                                              
+answer = arr.flatten()[24:40].reshape(4, 4)               # Flatten array and reshape it into 4 by 4 array
+print(f"\nh. {answer.tolist()}")                          # Insert commas by tolist() function
+# Method 2:
+# Concatenate last two rows of matrix with index=1 and first two rows of matrix with index=2
 answer = np.concatenate((arr[1, 2:4, :], arr[2, 0:2, :]))
-print(f"h. {answer.tolist()}")                                             # Insert commas by tolist() function
+print(f"h. {answer.tolist()}")                            # Insert commas by tolist() function
