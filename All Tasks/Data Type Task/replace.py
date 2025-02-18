@@ -8,6 +8,6 @@ sentence3 = sentence2.upper()
 
 print(sentence3)
 
-sentence4 = sentence3[ : :-1]
+sentence4 = sentence3[::-1]
 
 print(sentence4)
